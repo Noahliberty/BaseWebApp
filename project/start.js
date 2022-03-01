@@ -1,5 +1,8 @@
+require('dotenv').config()
 var express = require('express');
 var app = express();
+
+console.log(process.env)
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -11,6 +14,18 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
   response.render('pages/index');
+});
+
+app.get('/about', function(request, response) {
+  response.render('pages/about');
+});
+
+app.get('/projects', function(request, response) {
+  response.render('pages/projects');
+});
+
+app.get('/weather', function(request, response) {
+  response.render('pages/weather');
 });
 
 app.listen(app.get('port'), function() {
